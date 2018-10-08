@@ -29,7 +29,4 @@ class City
     $cities
   end
   
-  def clearAll
-    $cities = {}
-  end
 end

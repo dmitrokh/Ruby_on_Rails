@@ -1,25 +1,24 @@
-<h1>
+<h5>
+	<!-- I know this formatting looks ugly; will beautify it later -->
 	<%= @message %><br>
 		
 	<% if @city and @cityObject %>               <!-- if parameter city is specified-->
 		<h5>
-		City: <%= @cityName %><br>
-		-----------------------------------------------------<br>
-		POPULATION								LANDMARK<br>
-		<%= @cityPopulation %>				<%= @cityLandmark %>
+		<%= @cityName %><br>
+		----------------------------------------------<br>
+		POPULATION:	&emsp;&emsp;&emsp;&emsp; LANDMARK:<br>
+		&emsp;<%= @cityPopulation %> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <%= @cityLandmark %><br><br>	
 		</h5>
 	<% else %>                          <!-- if no city specified, output all cities from hash -->
 		<!--no city param, will check all cities<br>-->
 		<% if @allCities and @allCities.size > 0 %>
-			there are some cities in hash<br>
 			<% @allCities.each do |key, city| %>
 				<!--city: <%= key %><br> -->       	<!-- get city object --> 
 				<% if key %>
-					city: <%= city.name %><br>
-					--------------------------------------------------------<br>
-					POPULATION:	<%= city.population %><br>					
-						
-				    LANDMARK: <%= city.landmark %><br><br>
+					<%= city.name %><br>
+					----------------------------------------------<br>
+					POPULATION:	&emsp;&emsp;&emsp;&emsp; LANDMARK:<br>
+					&emsp;<%= city.population %> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <%= city.landmark %><br><br><br>					    
 
 				<% end %>
 			<% end %>
@@ -28,7 +27,7 @@
 			<%= button_to "Create new city", { :action => "new" }, :method => :get %>
 		<% end %>
 	<% end %>		
-</h1>
+</h5>
 			
 
 		

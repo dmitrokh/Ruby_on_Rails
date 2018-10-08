@@ -12,12 +12,14 @@
 			It's <%= c.temperature %>F and it looks like <%= c.description %>
 			<!--<% City.clear %>-->
 		</p>
+	<% else %>
+		<%= form_with local: true, method: 'get', url: 'index' do |f| %>
+			City: <%= f.text_field :city %>
+		<%= f.submit 'Get weather'%>
+		<% end %>
 	<% end %>
 <% end %>
 <% end %>
 
-<%= form_with local: true, method: 'get', url: 'index' do |f| %>
-	City: <%= f.text_field :city %>
-	<%= f.submit 'Get weather'%>
-<% end %>
+
 	

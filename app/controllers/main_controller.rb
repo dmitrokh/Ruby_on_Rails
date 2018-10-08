@@ -7,24 +7,24 @@ class MainController < ApplicationController
   end
 
   def index
-    # @name = params[:name]
-    # Uncomment and pass a parameter to the get function
     cityToCheck = params[:city]
     #@w = WeatherService.get(cityToCheck)
     
     if City.all[cityToCheck.to_sym] == nil              #no requested city exists in hash yet
-        puts 'adding new city'
         city = City.new(
                     name: params[:city],
                     population: params[:population],
                     landmark: params[:landmark]
                 )
         city.save
+        callView
     else
         #city.find_by(name: cityToCheck)
     end
     
-    redirect_to "/cities/view"
+  def callView
+      render 'cities/view'
+  end
     
     #if @w
     #  @temperature = (9 / 5) * (@w[:temperature] - 273) + 32
