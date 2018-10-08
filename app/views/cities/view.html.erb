@@ -1,0 +1,34 @@
+<h1>
+	<%= @message %><br>
+		
+	<% if @city and @cityObject %>               <!-- if parameter city is specified-->
+		<h5>
+		City: <%= @cityName %><br>
+		-----------------------------------------------------<br>
+		POPULATION								LANDMARK<br>
+		<%= @cityPopulation %>				<%= @cityLandmark %>
+		</h5>
+	<% else %>                          <!-- if no city specified, output all cities from hash -->
+		<!--no city param, will check all cities<br>-->
+		<% if @allCities and @allCities.size > 0 %>
+			there are some cities in hash<br>
+			<% @allCities.each do |key, city| %>
+				<!--city: <%= key %><br> -->       	<!-- get city object --> 
+				<% if key %>
+					city: <%= city.name %><br>
+					--------------------------------------------------------<br>
+					POPULATION:	<%= city.population %><br>					
+						
+				    LANDMARK: <%= city.landmark %><br><br>
+
+				<% end %>
+			<% end %>
+		<% else %>
+			<h5> No cities have been created yet. </h5>
+			<%= button_to "Create new city", { :action => "new" }, :method => :get %>
+		<% end %>
+	<% end %>		
+</h1>
+			
+
+		

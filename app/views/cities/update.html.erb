@@ -1,0 +1,19 @@
+<h1>
+	<%= form_with local: true, method: "POST", url: 'update' do |f| %>
+		
+	<%= f.label :city %><br>
+	<%= f.text_field :city, :required => true %><br>
+		
+	<%= f.label :population, 'Population' %><br>
+	<%= f.number_field :population %><br>
+		
+	<%= f.label :landmark, 'Landmark' %><br>
+	<%= f.text_field :landmark %><br>
+		
+	<%= f.submit 'Update' %>
+<% end %>
+</h1>
+<%= @message %>
+			
+
+		

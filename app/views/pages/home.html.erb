@@ -1,0 +1,15 @@
+<h1>
+	<!-- bad way to handle - mix view and controller -->
+	<% if @name %>                                         
+		Hello from home. My name is <%= @name.humanize %>
+	<% else %>
+		Please provide a name:
+		<%= form_with local:true, method: 'get' do |form| %>
+		<%= form.text_field :name %>
+		<%= form.submit %>
+		<% end %>
+	<% end %>
+</h1>
+			
+
+		

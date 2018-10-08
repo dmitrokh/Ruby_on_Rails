@@ -10,13 +10,16 @@ class WeatherService
       http.request(req)
     }
     data = JSON.parse res.body
-    if not data["name"]
-      {
-        temperature: "0",
-        description: "There was an error. It might be temporary, try again in a bit or choose a different city.",
-        city: "City"
-      }
+    if not data["main"]
+      return nil
     end
+    #if not data["name"]
+    #  {
+    #    temperature: "0",
+    #    description: "There was an error. It might be temporary, try again in a bit or choose a different city.",
+    #    city: "City"
+    #  }
+    #end
     {
       temperature: data["main"]["temp"],
       description: data["weather"][0]["description"],
