@@ -3,23 +3,20 @@
 <!--.humanize makes first char capital, .downcase has the opposite effect-->
 <!-- to use controller to assign value to name, use the next line-->
 <!--Hello <%= @name %> -->
-<% City.all.each do |c| %>
-	<% if c %>
-	<!--<% if @w %>-->
-		<!--<h1><%= @w[:city] %></h1>-->
-		<h6> <%= c.name %> </h6>
-		<p>
-			It's <%= c.temperature %>F and it looks like <%= c.description %>
-			<!--<% City.clear %>-->
-		</p>
-	<% else %>
-		<%= form_with local: true, method: 'get', url: 'index' do |f| %>
-			City: <%= f.text_field :city %>
-		<%= f.submit 'Get weather'%>
-		<% end %>
+<% citiesHash = City.all %>
+<% if citiesHash and citiesHash.size > 0 %>
+	<% City.all.each do |key, city| %>
+			<% if key %>
+				<h6> <%= key %> 
+				<p>
+					It's <%= city.weather[:temperature] %>F and it looks like <%= city.weather[:description] %>
+				</p></h5><br>
 	<% end %>
 <% end %>
 <% end %>
 
-
 	
+<%= form_with local: true, method: 'post', url: 'index' do |f| %>
+	City: <%= f.text_field :city %>
+<%= f.submit 'Get weather'%>
+<% end %>
