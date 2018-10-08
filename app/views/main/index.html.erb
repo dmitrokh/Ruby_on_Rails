@@ -3,6 +3,7 @@
 <!--.humanize makes first char capital, .downcase has the opposite effect-->
 <!-- to use controller to assign value to name, use the next line-->
 <!--Hello <%= @name %> -->
+<%= @message %>
 <% citiesHash = City.all %>
 <% if citiesHash and citiesHash.size > 0 %>
 	<% City.all.each do |key, city| %>

@@ -8,17 +8,10 @@ class MainController < ApplicationController
 
   def index
     cityToCheck = params[:city]
-    #@w = WeatherService.get(cityToCheck)
     
     if City.all[cityToCheck.to_sym] == nil              #no requested city exists in hash yet
-        
-        city = City.new(
-                    name: params[:city],
-                    population: params[:population],
-                    landmark: params[:landmark]
-                )
-        city.save
-               
+        @message = 'this city not in DB, create it' 
+        render 'cities/new'               
     else
         if @w
             @temperature = (9 / 5) * (@w[:temperature] - 273) + 32

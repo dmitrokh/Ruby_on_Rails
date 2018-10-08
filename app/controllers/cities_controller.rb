@@ -36,7 +36,8 @@ class CitiesController < ApplicationController
                 @message = 'The city already exists, no changes will be made'
             end
      end
-     redirect_to "/cities/view"
+     #redirect_to '/cities/view'
+     render 'main/index'
   end
   
   
@@ -58,7 +59,8 @@ class CitiesController < ApplicationController
     else
         @message = "the hash doesn't exists"        #no hash exists yet
     end    
-    redirect_to "/cities/view"
+    redirect_to '/cities/view'
+    #render '/cities/view'
   end
   
 end
