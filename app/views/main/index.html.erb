@@ -9,8 +9,6 @@
 		<!--<h1><%= @w[:city] %></h1>-->
 		<h6> <%= c.name %> </h6>
 		<p>
-			<!--It's <%= @temperature %>F
-			and it looks like <%= @w[:description] %>-->
 			It's <%= c.temperature %>F and it looks like <%= c.description %>
 			<!--<% City.clear %>-->
 		</p>
@@ -20,6 +18,6 @@
 
 <%= form_with local: true, method: 'get', url: 'index' do |f| %>
 	City: <%= f.text_field :city %>
-	<%= f.submit 'Show weather'%>
+	<%= f.submit 'Get weather'%>
 <% end %>
 	

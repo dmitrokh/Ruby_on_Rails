@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   #get 'city', to: 'main#index'
   #post 'users/sign_up', to: 'users#sign_up'
   
-  get 'main/index', to: 'main#index'
+  get 'main/index', to: 'main#callForm'
   post 'main/index', to: 'main#index'
   get 'cities/view', to: 'cities#view'
   get 'cities/new', to: 'cities#new'
